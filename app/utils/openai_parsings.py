@@ -13,7 +13,7 @@ def get_salary_and_skills(jd_text: str) -> str:
     prompt_text = """
     Parse the following job description and return a json object with properties:
     { "salary": should include range, values and currency, if no salary mentioned say 'no salary mentioned'
-    "skills":  should be formatted as list and include the technical skills expected from the candidate}
+      "skills":  should be formatted as list and include the technical skills expected from the candidate }
     """
     completion = client.chat.completions.create(
         model="gpt-3.5-turbo",

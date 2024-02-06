@@ -1,6 +1,20 @@
-# job-search-enhanced
+# Job Search Enhanced
 
-'A prototype to simplify job search with Linkedin jobs'
+A prototype to simplify job search with Linkedin jobs.
+The first step is to download the job descriptions from Linkedin.
+Since Linkedin doesn't allow scraping and doesn't even have a free API, I had to use a chrome extension.
+The steps are:
+1. Install the `jobs scraper extension` https://chromewebstore.google.com/detail/jobs-scraper-for-linkedin/jhmlphenakpfjkieogpinommlgjdjnhb
+2. Activate the extension - 1st it will ask you to register
+3. Do a search in Linkedin
+4. If the extension is activated, a green button “Download Jobs” is visible. 
+5. Click “Download jobs”. 
+6. A window will appear. When jobs are ready, click “Export jobs” - it will download a csv file
+
+Note that it will download only 20 first jobs. If you need more, close the first 20 jobs and go back to the previous step. 
+Repeat until got the needed number of jobs.
+
+After downloading the jobs, you add extra features, like skills and salary, see the notebook `notebooks/01-Data-Preparation.ipynb`
 
 ## Development Requirements
 
@@ -86,48 +100,3 @@ Application parts are:
     │       └── train_model.py
     │
     └── tests            - pytest
-
-## GCP
-
-Deploying inference service to Cloud Run
-
-### Authenticate
-
-1. Install `gcloud` cli
-2. `gcloud auth login`
-3. `gcloud config set project <PROJECT_ID>`
-
-### Enable APIs
-
-1. Cloud Run API
-2. Cloud Build API
-3. IAM API
-
-### Deploy to Cloud Run
-
-1. Run `gcp-deploy.sh`
-
-### Clean up
-
-1. Delete Cloud Run
-2. Delete Docker image in GCR
-
-## AWS
-
-Deploying inference service to AWS Lambda
-
-### Authenticate
-
-1. Install `awscli` and `sam-cli`
-2. `aws configure`
-
-### Deploy to Lambda
-
-1. Run `sam build`
-2. Run `sam deploy --guiChange this portion for other types of models
-
-## Add the correct type hinting when completed
-
-`aws cloudformation delete-stack --stack-name <STACK_NAME_ON_CREATION>`
-
-Made by <https://github.com/arthurhenrique/cookiecutter-fastapi/graphs/contributors> with ❤️
