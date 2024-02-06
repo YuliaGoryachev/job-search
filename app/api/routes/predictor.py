@@ -1,49 +1,22 @@
-import json
-
-import joblib
 from fastapi import APIRouter, HTTPException
-
-from app.core.config import INPUT_EXAMPLE
-from app.services.predict import MachineLearningModelHandlerScore as model
-from app.models.prediction import (
-    HealthResponse,
-    MachineLearningResponse,
-    MachineLearningDataInput,
-)
 from typing import List, Dict
 from app.utils.data_loader import Loader
 from app.utils.openai_parsings import cover_letter
+from pydantic import BaseModel
 
 router = APIRouter()
 
 
 ## Change this portion for other types of models
 ## Add the correct type hinting when completed
-def get_prediction(data_point):
-    return model.predict(data_point, load_wrapper=joblib.load, method="predict")
+# def get_prediction(data_point):
+#     return model.predict(data_point, load_wrapper=joblib.load, method="predict")
 
 
 def read_text_file(file_path: str) -> str:
     with open(file_path, "r") as file:
         return file.read()
 
-# @router.post(
-#     "/predict",
-#     response_model=MachineLearningResponse,
-#     name="predict:get-data",
-# )
-# async def predict(data_input: MachineLearningDataInput):
-#
-#     if not data_input:
-#         raise HTTPException(status_code=404, detail="'data_input' argument invalid!")
-#     try:
-#         data_point = data_input.get_np_array()
-#         prediction = get_prediction(data_point)
-#
-#     except Exception as err:
-#         raise HTTPException(status_code=500, detail=f"Exception: {err}")
-#
-#     return MachineLearningResponse(prediction=prediction)
 
 @router.post(
     "/rag_main",
@@ -83,10 +56,10 @@ def get_cover_letter(data_input: List[str]) -> str:
         return cover_letter(jd_text, cv_text)
     except Exception as e:
         print(e)
-#sawgger: http://localhost:8000/docs
-# to run the app:
-# (.venv) yuliagoryachev@Yulias-MBP-2 app % uvicorn main:app --reload
-# in /Users/yuliagoryachev/job-search-enhanced/app
+
+
+class HealthResponse(BaseModel):
+    status: str
 
 
 @router.get(
