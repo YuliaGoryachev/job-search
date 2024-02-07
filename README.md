@@ -1,6 +1,7 @@
 # Job Search Enhanced
-
-A prototype to simplify job search with LinkedIn jobs.
+This is a stripped down version of a basic "cokkie-cutter" Fastapi project, 
+taken form here: https://pypi.org/project/FastAPI-Cookiecutter/.
+The purpose of this prototype is to simplify job search with LinkedIn jobs.
 The first step is to download the job descriptions from LinkedIn.
 Since LinkedIn doesn't allow scraping and doesn't even have a free API, I had to use a Chrome extension.
 The steps are:
@@ -61,31 +62,10 @@ Application parts are:
     ├── api                 - web related stuff.
     │   └── routes          - web routes.
     ├── core                - application configuration, startup events, logging.
-    ├── models              - pydantic models for this application.
-    ├── services            - logic that is not just crud related.
-    ├── main-aws-lambda.py  - [Optional] FastAPI application for AWS Lambda creation and configuration.
+    ├── utils               - utilities for this application.
     └── main.py             - FastAPI application creation and configuration.
     |
     | # ML stuff
     ├── data             - where you persist data locally
-    │   ├── interim      - intermediate data that has been transformed.
-    │   ├── processed    - the final, canonical data sets for modeling.
-    │   └── raw          - the original, immutable data dump.
-    │
     ├── notebooks        - Jupyter notebooks. Naming convention is a number (for ordering),
-    |
-    ├── ml               - modelling source code for use in this project.
-    │   ├── __init__.py  - makes ml a Python module
-    │   ├── pipeline.py  - scripts to orchestrate the whole pipeline
-    │   │
-    │   ├── data         - scripts to download or generate data
-    │   │   └── make_dataset.py
-    │   │
-    │   ├── features     - scripts to turn raw data into features for modeling
-    │   │   └── build_features.py
-    │   │
-    │   └── model        - scripts to train models and make predictions
-    │       ├── predict_model.py
-    │       └── train_model.py
-    │
     └── tests            - pytest
