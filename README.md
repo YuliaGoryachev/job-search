@@ -1,7 +1,7 @@
 # Job Search Enhanced
-This is a stripped down version of a basic "cokkie-cutter" Fastapi project, 
+This is a stripped down version of a basic "cookie-cutter" Fastapi project, 
 taken form here: https://pypi.org/project/FastAPI-Cookiecutter/.
-The purpose of this prototype is to simplify job search with LinkedIn jobs.
+The purpose of this prototype is to simplify my a search with LinkedIn jobs.
 The first step is to download the job descriptions from LinkedIn.
 Since LinkedIn doesn't allow scraping and doesn't even have a free API, I had to use a Chrome extension.
 The steps are:
@@ -19,9 +19,9 @@ After downloading the jobs, you add extra features, like skills and salary, see 
 
 Most of the examples how to use the different functions to search for interesting roles are in the notebook `notebooks/Linkedin_for_me.ipynb`
 There are however two endpoints that can be used.
-One endpoint is to get a cover letter for a job specification and a cv.
-The other is to ask questions about the available jobs and get jobs recommendations.
-I didn't persist any models so no predictive endpoint is available, yet.
+One endpoint is to get a cover letter for a job specification and a CV.
+The other can be used to ask questions about the available jobs and get jobs recommendations.
+
 ## Development Requirements
 
 - Python3.10
@@ -29,17 +29,18 @@ I didn't persist any models so no predictive endpoint is available, yet.
 - Poetry (Python Package Manager)
 
 ## Installation
-
+if no venv is available, create one with the following commands:
 ```sh
 python -m venv venv
 source venv/bin/activate
 make install
 ```
-
+if available activate the venv
 ## Running Localhost
-
+```sh
 cd app
 uvicorn main:app --reload
+```
 - You can call the endpoints from swagger
 
 ## Running Tests
@@ -48,7 +49,7 @@ uvicorn main:app --reload
 
 ## Access Swagger Documentation
 
-> <http://localhost:8080/docs>
+> <http://localhost:8000/docs>
 
 
 ## Project structure
