@@ -27,8 +27,8 @@ test:
 install: generate_dot_env
 	pip install --upgrade pip
 	pip install poetry
-	poetry install --with dev
-
+	poetry install
+	
 # run:
 # 	PYTHONPATH=app/ poetry run uvicorn main:app --reload --host 0.0.0.0 --port 8080
 
