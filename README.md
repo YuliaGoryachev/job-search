@@ -1,7 +1,7 @@
 # Job Search Enhanced
 This is a stripped down version of a basic "cookie-cutter" Fastapi project, 
 taken form here: https://pypi.org/project/FastAPI-Cookiecutter/.
-The purpose of this prototype is to simplify my a search with LinkedIn jobs.
+The purpose of this prototype is to simplify my search with LinkedIn jobs.
 The first step is to download the job descriptions from LinkedIn.
 Since LinkedIn doesn't allow scraping and doesn't even have a free API, I had to use a Chrome extension.
 The steps are:
